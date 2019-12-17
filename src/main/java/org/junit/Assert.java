@@ -18,15 +18,20 @@ import org.junit.internal.InexactComparisonCriteria;
  *    ...
  *    assertEquals(...);
  * </pre>
+ * @param <T>
  *
  * @see AssertionError
  * @since 4.0
  */
-public class Assert {
+public class Assert<T> {
     /**
      * Protect constructor since it is a static only class
      */
     protected Assert() {
+    }
+    
+    public static <T> void assertGreaterThan(T o1, T o2, java.util.Comparator<T> comparator){
+        comparator.compare(o1, o2);
     }
 
     public static <Int> void assertGreaterThan(int o1,int o2, java.util.Comparator<Integer> comparator) {
